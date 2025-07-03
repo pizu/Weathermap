@@ -24,8 +24,9 @@
 		die("Couldn't find a usable Cacti config - check the first few lines of ".__FILE__."\n");
 	}
 
-	require_once '../lib/Weathermap.class.php';
-	require_once 'Console/Getopt.php';
+        require_once '../lib/Weathermap.class.php';
+        require_once '../lib/database.php';
+        require_once 'Console/Getopt.php';
 
 	$reverse = 0;
 	$inputfile = "";
@@ -86,10 +87,12 @@
 	}
 
 	if($inputfile == "" || $outputfile == "")
-	{
-		print "You must specify an input and output file. See --help.\n";
-		exit();
-	}
+        {
+                print "You must specify an input and output file. See --help.\n";
+                exit();
+        }
+
+        $pdo = weathermap_get_pdo();
 	
 	$map = new WeatherMap;
 	
@@ -164,14 +167,14 @@
 							$db_rrdname = str_replace($path_rra,"<path_rra>",$db_rrdname);
 							# special case for relative paths
 							$db_rrdname = str_replace("../../rra","<path_rra>",$db_rrdname);
-							
 							if($db_rrdname != $rrdfile)
-							{		
-								wm_debug("ConvertDS: Looking for $db_rrdname in the database.");
+                                                        {
+                                                                wm_debug("ConvertDS: Looking for $db_rrdname in the database.");
+
+                                                                $stmt = $pdo->prepare("select data_template_data.local_data_id from data_template_data,data_template_rrd where data_template_data.local_data_id=data_template_rrd.local_data_id and data_template_data.data_source_path=?");
+                                                                $stmt->execute(array($db_rrdname));
+                                                                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 								
-								$SQLcheck = "select data_template_data.local_data_id from data_template_data,data_template_rrd where data_template_data.local_data_id=data_template_rrd.local_data_id and data_template_data.data_source_path='".mysql_real_escape_string($db_rrdname)."'";
-								wm_debug("ConvertDS: ".$SQLcheck);
-								$results = db_fetch_assoc($SQLcheck);
 								
 								if( (sizeof($results) > 0) && (isset($results[0]['local_data_id']) ) )
 								{							
@@ -234,10 +237,10 @@
 							
 									
 							wm_debug("ConvertDS: Looking for $db_rrdname in the database.");
-							
-							$SQLcheck = "select data_template_data.local_data_id from data_template_data,data_template_rrd where data_template_data.local_data_id=data_template_rrd.local_data_id and data_template_data.data_source_path='".mysql_real_escape_string($db_rrdname)."'";
-							wm_debug("ConvertDS: ".$SQLcheck);
-							$results = db_fetch_assoc($SQLcheck);
+
+                                                        $stmt = $pdo->prepare("select data_template_data.local_data_id from data_template_data,data_template_rrd where data_template_data.local_data_id=data_template_rrd.local_data_id and data_template_data.data_source_path=?");
+                                                        $stmt->execute(array($db_rrdname));
+                                                        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 							
 							if( (sizeof($results) > 0) && (isset($results[0]['local_data_id']) ) )
 							{							
