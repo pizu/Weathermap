@@ -9,6 +9,7 @@ $height = 3000;
 
 
 require_once 'editor-config.php';
+require_once '../lib/database.php';
 
 // check if the goalposts have moved
 if( is_dir($cacti_base) && file_exists($cacti_base."/include/global.php") )
@@ -40,7 +41,11 @@ if(!function_exists("cacti_snmp_get"))
 
 # figure out which template has interface traffic. This might be wrong for you.
 $data_template = "Interface - Traffic";
-$data_template_id = db_fetch_cell("select id from data_template where name='".mysql_real_escape_string($data_template)."'");
+
+$pdo = weathermap_get_pdo();
+$stmt = $pdo->prepare("select id from data_template where name=?");
+$stmt->execute(array($data_template));
+$data_template_id = $stmt->fetchColumn();
 
 $Interfaces_SQL = "select host.snmp_version,host.snmp_community,host.snmp_username,host.snmp_password,host.snmp_auth_protocol,host.snmp_priv_passphrase,host.snmp_priv_protocol,host.snmp_context,host.snmp_port,host.snmp_timeout,host.description, host.hostname, host.disabled, host_snmp_cache.* from host_snmp_cache,host where host_snmp_cache.host_id=host.id and (field_name='ifDescr' or field_name='ifName' or field_name='ifIP' or field_name='ifAlias') and host.disabled<>'on' and field_value<>'127.0.0.1' and field_value<>'0.0.0.0' and host.status=3 and host.snmp_version>0;";
 $queryrows = db_fetch_assoc($Interfaces_SQL);
