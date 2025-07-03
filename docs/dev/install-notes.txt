@@ -22,7 +22,7 @@ MYSQL_ROOT_PWD="mypassword"
 #######################################################################
 
 # Cacti stuff
-apt-get -y install git subversion php5 php5-gd snmp rrdtool
+apt-get -y install git subversion php php8.x-gd snmp rrdtool
 
 # General C stuff (to build spine)
 apt-get -y install autoconf build-essential linux-headers-`uname -r`
@@ -34,7 +34,7 @@ apt-get -y install libmysqlclient-dev libsnmp-dev
 apt-get -y install xsltproc php-pear
 
 # Weathermap - fping datasource, xdebug & ImageMagick for unit tests
-apt-get -y install fping imagemagick php5-xdebug
+apt-get -y install fping imagemagick php8.x-xdebug
 
 # Generally useful for testing
 apt-get -y install snmpd zip unzip
