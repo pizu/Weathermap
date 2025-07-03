@@ -15,7 +15,7 @@ $WEATHERMAP_VERSION = "0.98b";
 $weathermap_debugging = false;
 $weathermap_map = "";
 $weathermap_warncount = 0;
-$weathemap_lazycounter = 0;
+$weathermap_lazycounter = 0;
 
 // Dummy array for some future code
 $WM_config_keywords2 = array();
@@ -3980,7 +3980,7 @@ class WeatherMap extends WeatherMapBase
             $json .= "{ id: 3, text: 'NODEs',\n children: [\n";
             $json .= "{ id: " . $id++ . ", text: 'DEFAULT', children: [\n";
 
-            $weathemap_lazycounter = $id;
+            $weathermap_lazycounter = $id;
             // pass the list of subordinate nodes to the recursive tree function
             $json .= $this->MakeTemplateTree($this->node_template_tree);
             $id = $weathermap_lazycounter;
@@ -3990,7 +3990,7 @@ class WeatherMap extends WeatherMapBase
 
             $json .= "{ id: 4, text: 'LINKs',\n children: [\n";
             $json .= "{ id: " . $id++ . ", text: 'DEFAULT', children: [\n";
-            $weathemap_lazycounter = $id;
+            $weathermap_lazycounter = $id;
             $json .= $this->MakeTemplateTree($this->link_template_tree);
             $id = $weathermap_lazycounter;
             $json = rtrim($json, ", \n");
