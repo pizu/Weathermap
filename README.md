@@ -3,6 +3,11 @@
 This is a modification of the PHP Network Weathermap plugin for libreNMS, the migrations corresponds to version 0.98a of the original Network Weathermap, see: https://github.com/howardjones/network-weathermap/tree/0.98-php7
 
 ----
+This is a modification of the PHP Network Weathermap plugin for libreNMS. The migrations correspond to version 0.98a of the original Network Weathermap. For the original source, see the [network-weathermap repository](https://github.com/howardjones/network-weathermap).
+
+Weathermap now supports PHP 8.x.
+
+----
 
 This is  modified version of PHP Network Weathermap (original README is below)
 
