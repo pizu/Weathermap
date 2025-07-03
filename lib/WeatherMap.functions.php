@@ -326,9 +326,9 @@ function is_none($arr)
 
 function render_colour($col)
 {
-	if (($col[0] == -1) && ($col[1] == -1) && ($col[1] == -1)) { return 'none'; }
-	else if (($col[0] == -2) && ($col[1] == -2) && ($col[1] == -2)) { return 'copy'; }
-	else if (($col[0] == -3) && ($col[1] == -3) && ($col[1] == -3)) { return 'contrast'; }
+	if (($col[0] == -1) && ($col[1] == -1) && ($col[2] == -1)) { return 'none'; }
+	else if (($col[0] == -2) && ($col[1] == -2) && ($col[2] == -2)) { return 'copy'; }
+	else if (($col[0] == -3) && ($col[1] == -3) && ($col[2] == -3)) { return 'contrast'; }
 	else { return sprintf("%d %d %d", $col[0], $col[1], $col[2]); }
 }
 
