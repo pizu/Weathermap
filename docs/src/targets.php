@@ -262,7 +262,7 @@ include "common-page-head.php";
     </div>
 
     <p>For tab-delimited data files, the format is plain-text, with three
-        tab-seperated columns. The first one is a linkname, and the second and third
+        tab-separated columns. The first one is a linkname, and the second and third
         are traffic-in and traffic-out, respectively. The linkname should match the
         name in the configuration file. This allows you to create one text file for
         the entire map from some outside source. Traffic in &amp; out values can use
