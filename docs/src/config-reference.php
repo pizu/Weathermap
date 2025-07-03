@@ -282,7 +282,7 @@ NODE sub_node
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">Specifies where to look for the current "throughput" information for this 
  <a href="#NODE_NODE">NODE.</a> You can also specify multiple targets, which will then be added together 
  to make the aggregate result which is then displayed. Specify the targets on one 
- <a href="#NODE_TARGET">TARGET</a> line, seperated with a space. If a targetspec starts with a '-', then 
+ <a href="#NODE_TARGET">TARGET</a> line, separated with a space. If a targetspec starts with a '-', then 
  it's value will be <i>subtracted</i> from the final result instead. </p> 
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">Also, if a targetspec starts with a number, then a *, then it's used a 
  scaling factor on the result. You can do basic maths with this, especially if 
@@ -1186,7 +1186,7 @@ LINK secondlink
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">Specifies where to look for the current throughput information for this <a href="#LINK_LINK">LINK.</a> 
  You can also specify multiple targets, which will then be added together to make 
  the aggregate bandwidth which is then displayed. Specify the targets on one 
- <a href="#LINK_TARGET">TARGET</a> line, seperated with a space. If a targetspec starts with a '-', then 
+ <a href="#LINK_TARGET">TARGET</a> line, separated with a space. If a targetspec starts with a '-', then 
  it's value will be <i>subtracted</i> from the final result instead. </p> 
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">Also, if a targetspec starts with a number, then a *, then it's used a 
  scaling factor on the result. You can do basic maths with this, especially if 

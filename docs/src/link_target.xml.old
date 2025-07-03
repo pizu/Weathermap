@@ -27,7 +27,7 @@
        this rrd file for the purposes of the input or output value.
        This is mainly useful in combination with the aggregation feature.</p>
        
-       <p>For tab-delimited data files, the format is plain-text, with three tab-seperated columns.
+       <p>For tab-delimited data files, the format is plain-text, with three tab-separated columns.
        The first one is a linkname, and the second and third are traffic-in and traffic-out, respectively.
        The linkname should match the name in the configuration file. This allows you to create one text file
        for the entire map from some outside source. Traffic in &amp; out values can use the same "K,M,G,T" abbreviated forms
@@ -35,7 +35,7 @@
        recognised as a tab-delimited file by Weathermap.</p>
 
 <p>You can also specify multiple targets, which will then be added together to make the aggregate bandwidth
-which is then displayed. Specify the targets on one TARGET line, seperated with a space.</p>
+which is then displayed. Specify the targets on one TARGET line, separated with a space.</p>
 
     </description>
     <changes>

@@ -43,7 +43,7 @@
         <p>Specifies where to look for the current throughput information for this LINK.
         You can also specify multiple targets, which will then be added together to make
         the aggregate bandwidth which is then displayed. Specify the targets on one
-        TARGET line, seperated with a space. If a targetspec starts with a '-', then
+        TARGET line, separated with a space. If a targetspec starts with a '-', then
         it's value will be <i>subtracted</i> from the final result instead.</p>
 
         <p>Also, if a targetspec starts with a number, then a *, then it's used a
