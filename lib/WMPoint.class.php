@@ -71,14 +71,46 @@ class WMPoint
 
     public function distanceToLine($l)
     {
-        // TODO: Implement this
+        // use the standard distance-from-line formula using slope/intercept
+        $slope = $l->getSlope();
+        $intercept = $l->getYIntercept();
+
+        $numerator = abs(($slope * $this->x) - $this->y + $intercept);
+        $denominator = sqrt(($slope * $slope) + 1);
+
+        return ($denominator == 0) ? 0 : ($numerator / $denominator);
     }
 
     function distanceToLineSegment($l)
     {
-        // TODO: Implement this
         // Return whichever is the shortest out of:
         // Distance to point1, distance to point2, distance to line
+
+        // length squared of the line segment
+        $len2 = $l->vector->squaredLength();
+        if ($len2 == 0) {
+            return $this->distanceToPoint($l->point1);
+        }
+
+        $dx = $this->x - $l->point1->x;
+        $dy = $this->y - $l->point1->y;
+
+        $t = ($dx * $l->vector->dx + $dy * $l->vector->dy) / $len2;
+
+        if ($t < 0) {
+            return $this->distanceToPoint($l->point1);
+        }
+
+        if ($t > 1) {
+            return $this->distanceToPoint($l->point2);
+        }
+
+        $projX = $l->point1->x + $t * $l->vector->dx;
+        $projY = $l->point1->y + $t * $l->vector->dy;
+
+        $projection = new WMPoint($projX, $projY);
+
+        return $this->distanceToPoint($projection);
     }
 
     public function distanceToPoint($p2)
