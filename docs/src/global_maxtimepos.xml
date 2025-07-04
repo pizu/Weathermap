@@ -43,7 +43,7 @@
         The supported tokens include <tt>%Y</tt>, <tt>%m</tt>, <tt>%d</tt>,
         <tt>%H</tt>, <tt>%M</tt>, <tt>%S</tt>, <tt>%b</tt>, <tt>%B</tt>,
         <tt>%a</tt>, <tt>%A</tt>, <tt>%p</tt>, <tt>%z</tt> and
-        <tt>%Z</tt>.</p>
+        <tt>%Z</tt> (timezone abbreviation).</p>
 
         <p>You can control the font used to draw the timestamp with TIMEFONT, and the
         colour that it is drawn in, using TIMECOLOR.</p>
