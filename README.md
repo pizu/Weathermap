@@ -24,7 +24,22 @@ See COPYING for the license under which php-weathermap is released.
 There is much more information, tutorials and updates available at:
 http://www.network-weathermap.com/
 
+### Running Tests
 
+To execute the PHPUnit test suite you need PHP with the **gd** extension enabled.
+Install PHPUnit via Composer:
+
+```
+composer install
+```
+
+or install phpunit using your package manager. Once installed, run:
+
+```
+phpunit --configuration phpunit.xml
+```
+
+from the project root.
 ----
 
 PHP Weathermap contains components from other software developers:
