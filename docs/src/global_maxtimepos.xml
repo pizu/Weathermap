@@ -40,7 +40,10 @@
         <nobr><tt>Newest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens follow the
         same format as the PHP <code>strftime()</code> function but are
         translated internally and passed to <code>date()</code> for rendering.
-        </p>
+        The supported tokens include <tt>%Y</tt>, <tt>%m</tt>, <tt>%d</tt>,
+        <tt>%H</tt>, <tt>%M</tt>, <tt>%S</tt>, <tt>%b</tt>, <tt>%B</tt>,
+        <tt>%a</tt>, <tt>%A</tt>, <tt>%p</tt>, <tt>%z</tt> and
+        <tt>%Z</tt>.</p>
 
         <p>You can control the font used to draw the timestamp with TIMEFONT, and the
         colour that it is drawn in, using TIMECOLOR.</p>
