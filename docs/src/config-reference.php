@@ -2722,12 +2722,11 @@ LINK secondlink
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">If no <a href="#GLOBAL_TIMEPOS">TIMEPOS</a> line is given, then the timestamp is drawn in the top-right 
  corner. To hide it completely, set y to be <nobr>-200</nobr> or so. </p> 
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can optionally specify an additional parameter to change the text of the 
- timestamp. This text can contain special tokens which are substituted with parts 
- of the current time. The default timestamp text is 
- <nobr><tt>Created: %b %d %Y %H:%M:%S</tt></nobr>. The tokens used are those 
- accepted by the PHP strftime function. For a full list see the 
- <a href="http://www.php.net/manual/en/function.strftime.php">PHP manual 
- page</a>. </p> 
+ timestamp. This text can contain special tokens which are substituted with parts
+ of the current time. The default timestamp text is
+ <nobr><tt>Created: %b %d %Y %H:%M:%S</tt></nobr>. The tokens follow the
+ same format as the PHP <code>strftime()</code> function but are translated
+ internally and passed to <code>date()</code> for rendering. </p>
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can control the font used to draw the timestamp with <a href="#GLOBAL_FONT">TIMEFONT,</a> and the 
  colour that it is drawn in, using <a href="#GLOBAL_COLORS">TIMECOLOR.</a> </p> 
   </div>
@@ -2769,13 +2768,12 @@ LINK secondlink
  time if it was a live SNMP query. The minimum and maximum of these times are 
  collated, and can be shown on the map with <a href="#GLOBAL_MINTIMEPOS">MINTIMEPOS</a> and <a href="#GLOBAL_MAXTIMEPOS">MAXTIMEPOS.</a> </p> 
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">If no <a href="#GLOBAL_MINTIMEPOS">MINTIMEPOS</a> line is given, then the timestamp is not drawn. </p> 
- <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can optionally specify an additional parameter to change the text of the 
- timestamp. This text can contain special tokens which are substituted with parts 
- of the current time. The default timestamp text is 
- <nobr><tt>Oldest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens used are those 
- accepted by the PHP strftime function. For a full list see the 
- <a href="http://www.php.net/manual/en/function.strftime.php">PHP manual 
- page</a>. </p> 
+ <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can optionally specify an additional parameter to change the text of the
+timestamp. This text can contain special tokens which are substituted with parts
+of the current time. The default timestamp text is
+<nobr><tt>Oldest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens follow the
+same format as the PHP <code>strftime()</code> function but are translated
+internally and passed to <code>date()</code> for rendering. </p>
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can control the font used to draw the timestamp with <a href="#GLOBAL_FONT">TIMEFONT,</a> and the 
  colour that it is drawn in, using <a href="#GLOBAL_COLORS">TIMECOLOR.</a> </p> 
   </div>
@@ -2817,10 +2815,9 @@ LINK secondlink
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can optionally specify an additional parameter to change the text of the 
  timestamp. This text can contain special tokens which are substituted with parts 
  of the current time. The default timestamp text is 
- <nobr><tt>Newest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens used are those 
- accepted by the PHP strftime function. For a full list see the 
- <a href="http://www.php.net/manual/en/function.strftime.php">PHP manual 
- page</a>. </p> 
+ <nobr><tt>Newest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens follow the
+same format as the PHP <code>strftime()</code> function but are translated
+internally and passed to <code>date()</code> for rendering. </p> 
  <p xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude">You can control the font used to draw the timestamp with <a href="#GLOBAL_FONT">TIMEFONT,</a> and the 
  colour that it is drawn in, using <a href="#GLOBAL_COLORS">TIMECOLOR.</a> </p> 
   </div>
