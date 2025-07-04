@@ -23,4 +23,10 @@ class RenderColourTest extends TestCase
     {
         $this->assertEquals('1 2 3', render_colour([1,2,3]));
     }
+    
+    public function testNotNoneWhenOnlyTwoMinusOne()
+    {
+        $this->assertEquals('-1 -1 0', render_colour([-1,-1,0]));
+    }
+
 }

@@ -37,10 +37,10 @@
         <p>You can optionally specify an additional parameter to change the text of the
         timestamp. This text can contain special tokens which are substituted with parts
         of the current time. The default timestamp text is
-        <nobr><tt>Newest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens used are those
-        accepted by the PHP strftime function. For a full list see the
-        <a href="http://www.php.net/manual/en/function.strftime.php">PHP manual
-        page</a>.</p>
+        <nobr><tt>Newest Data: %b %d %Y %H:%M:%S</tt></nobr>. The tokens follow the
+        same format as the PHP <code>strftime()</code> function but are
+        translated internally and passed to <code>date()</code> for rendering.
+        </p>
 
         <p>You can control the font used to draw the timestamp with TIMEFONT, and the
         colour that it is drawn in, using TIMECOLOR.</p>

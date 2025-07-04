@@ -183,7 +183,7 @@ function list_weathermaps($mapdir)
 }
 function show_editor_startpage()
 {
-	global $mapdir, $WEATHERMAP_VERSION, $config_loaded, $cacti_found, $ignore_cacti,$configerror;
+	global $mapdir, $WEATHERMAP_VERSION, $config_loaded, $cacti_found, $ignore_cacti, $librenms_found, $ignore_librenms, $action, $configerror;
 
 	$fromplug = false;
 	if (isset($_REQUEST['plug']) && (intval($_REQUEST['plug'])==1) ) {

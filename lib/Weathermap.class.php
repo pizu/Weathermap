@@ -15,7 +15,7 @@ $WEATHERMAP_VERSION = "0.98b";
 $weathermap_debugging = false;
 $weathermap_map = "";
 $weathermap_warncount = 0;
-$weathemap_lazycounter = 0;
+$weathermap_lazycounter = 0;
 
 // Dummy array for some future code
 $WM_config_keywords2 = array();
@@ -238,7 +238,8 @@ class WeatherMap extends WeatherMapBase
 		$stamptext, $datestamp;
 	var $min_data_time, $max_data_time;
 	var $htmloutputfile,
-		$imageoutputfile;
+                $dataoutputfile,
+                $imageoutputfile;
 	var $htmlstylesheet;
 	var $defaultlink,
 		$defaultnode;
@@ -302,10 +303,10 @@ class WeatherMap extends WeatherMapBase
 			'rrdtool_check' => '',
 			'background' => '',
 			'imageoutputfile' => '',
-			'imageuri' => '',
-			'htmloutputfile' => '',
-			'htmlstylesheet' => '',
-			'labelstyle' => 'percent', // redundant?
+                        'imageuri' => '',
+                        'htmloutputfile' => '',
+                        'dataoutputfile' => '',
+                        'htmlstylesheet' => '',
 			'htmlstyle' => 'static',
 			'keystyle' => array('DEFAULT' => 'classic'),
 			'title' => 'Network Weathermap',
@@ -1723,12 +1724,12 @@ class WeatherMap extends WeatherMapBase
 
         switch ($which) {
             case "MIN":
-                $stamp = strftime($this->minstamptext, $this->min_data_time);
+                $stamp = wm_format_date($this->minstamptext, $this->min_data_time);
                 $pos_x = $this->mintimex;
                 $pos_y = $this->mintimey;
                 break;
             case "MAX":
-                $stamp = strftime($this->maxstamptext, $this->max_data_time);
+                $stamp = wm_format_date($this->maxstamptext, $this->max_data_time);
                 $pos_x = $this->maxtimex;
                 $pos_y = $this->maxtimey;
                 break;
@@ -3290,7 +3291,7 @@ class WeatherMap extends WeatherMapBase
         } else {
             $maptime = time();
         }
-        $this->datestamp = strftime($this->stamptext, $maptime);
+        $this->datestamp = wm_format_date($this->stamptext, $maptime);
 
         // do the basic prep work
         if ($this->background != '') {
@@ -3980,7 +3981,7 @@ class WeatherMap extends WeatherMapBase
             $json .= "{ id: 3, text: 'NODEs',\n children: [\n";
             $json .= "{ id: " . $id++ . ", text: 'DEFAULT', children: [\n";
 
-            $weathemap_lazycounter = $id;
+            $weathermap_lazycounter = $id;
             // pass the list of subordinate nodes to the recursive tree function
             $json .= $this->MakeTemplateTree($this->node_template_tree);
             $id = $weathermap_lazycounter;
@@ -3990,7 +3991,7 @@ class WeatherMap extends WeatherMapBase
 
             $json .= "{ id: 4, text: 'LINKs',\n children: [\n";
             $json .= "{ id: " . $id++ . ", text: 'DEFAULT', children: [\n";
-            $weathemap_lazycounter = $id;
+            $weathermap_lazycounter = $id;
             $json .= $this->MakeTemplateTree($this->link_template_tree);
             $id = $weathermap_lazycounter;
             $json = rtrim($json, ", \n");
