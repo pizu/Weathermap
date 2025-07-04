@@ -43,7 +43,7 @@ $valid_show_interfaces = array (
 		exit;
 	}
 
-	chdir($librenms_base . '/plugins/Weathermap');
+	chdir($librenms_base . '/html/plugins/Weathermap');
 	$librenms_found = true;
 
 	/* Validate configuration, see defaults.inc.php for explaination */
