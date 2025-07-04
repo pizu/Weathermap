@@ -28,4 +28,5 @@ class RenderColourTest extends TestCase
     {
         $this->assertEquals('-1 -1 0', render_colour([-1,-1,0]));
     }
+
 }
