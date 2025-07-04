@@ -26,7 +26,7 @@
 
 	require_once '../lib/Weathermap.class.php';
         require_once '../lib/database.php';
-        require_once 'Console/Getopt.php';
+        require_once __DIR__.'/../lib/Console/Getopt.php';
 
 
 	$reverse = 0;
