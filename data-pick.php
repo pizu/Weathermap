@@ -313,7 +313,7 @@ if($hosts->isNotEmpty()) {
 	/*
 	 * Query interfaces (if we should)...
 	 */
-	$result = Null;
+	$devices = null;
 	if ($host_id != 0) {
 	    $devices = \App\Models\Device::when($host_id > 0, function ($query) use ($host_id) {
 	        $query->where('device_id', $host_id);
