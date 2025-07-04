@@ -62,6 +62,9 @@ http://www.famfamfam.com/lab/icons/silk/
 These are released under the Creative Commons Attribution 2.5 License
 http://creativecommons.org/licenses/by/2.5/
 
+Console_Getopt (lib/Console/Getopt.php) is bundled from the PEAR package
+version 1.4.3 and is licensed under the BSD-2-Clause license. See
+lib/Console/LICENSE for details.
 ----
 
 Thanks to Edgeuno for the support, visit us at https://edgeuno.com/
