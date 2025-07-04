@@ -238,7 +238,8 @@ class WeatherMap extends WeatherMapBase
 		$stamptext, $datestamp;
 	var $min_data_time, $max_data_time;
 	var $htmloutputfile,
-		$imageoutputfile;
+                $dataoutputfile,
+                $imageoutputfile;
 	var $htmlstylesheet;
 	var $defaultlink,
 		$defaultnode;
@@ -302,10 +303,10 @@ class WeatherMap extends WeatherMapBase
 			'rrdtool_check' => '',
 			'background' => '',
 			'imageoutputfile' => '',
-			'imageuri' => '',
-			'htmloutputfile' => '',
-			'htmlstylesheet' => '',
-			'labelstyle' => 'percent', // redundant?
+                        'imageuri' => '',
+                        'htmloutputfile' => '',
+                        'dataoutputfile' => '',
+                        'htmlstylesheet' => '',
 			'htmlstyle' => 'static',
 			'keystyle' => array('DEFAULT' => 'classic'),
 			'title' => 'Network Weathermap',
