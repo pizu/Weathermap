@@ -2233,15 +2233,18 @@ class WeatherMap extends WeatherMapBase
                             }
                         }
 
-                        // TODO - really, this should kill the whole link, and reset for the next one
+                        // discard the entire link if either node is unknown
                         if ($valid_nodes == 2) {
                             $curlink->a = $this->nodes[$nodenames[1]];
                             $curlink->b = $this->nodes[$nodenames[2]];
                             $curlink->a_offset = $endoffset[1];
                             $curlink->b_offset = $endoffset[2];
                         } else {
-                            // this'll stop the current link being added
-                            $last_seen = "broken";
+                            // skip remaining lines for this LINK and reset state
+                            wm_warn("Discarding LINK '{$curlink->name}' due to unknown node(s) on line $linecount\n");
+                            unset($curlink);
+                            $curlink = null;
+                            $last_seen = "GLOBAL";
                         }
 
                         $linematched++;
