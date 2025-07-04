@@ -206,7 +206,7 @@ function wm_format_date($format, $timestamp)
         '%p' => 'A',  // am/pm
         '%S' => 's',  // seconds
 	'%z' => 'O',  // difference to GMT
-        '%Z' => 'e',  // timezone identifier
+        '%Z' => 'T',  // timezone abbreviation
         '%y' => 'y',  // year 00-99
         '%Y' => 'Y',  // year four digits
         '%%' => '%',
