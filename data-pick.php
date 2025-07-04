@@ -47,13 +47,19 @@ $valid_show_interfaces = array (
 	$librenms_found = true;
 
 	/* Validate configuration, see defaults.inc.php for explaination */
-	if (in_array ($config['plugins']['Weathermap']['sort_if_by'], $valid_sort_if_by))
-		$weathermap_config['sort_if_by'] = $config['plugins']['Weathermap']['sort_if_by'];
+        if (isset($config['plugins']['Weathermap']['sort_if_by']) &&
+            in_array($config['plugins']['Weathermap']['sort_if_by'], $valid_sort_if_by)) {
+                $weathermap_config['sort_if_by'] = $config['plugins']['Weathermap']['sort_if_by'];
+        }
 
-	if (in_array ($config['plugins']['Weathermap']['show_interfaces'], $valid_show_interfaces))
-		$weathermap_config['show_interfaces'] = $valid_show_interfaces[$config['plugins']['Weathermap']['show_interfaces']];
-	elseif (validate_device_id ($config['plugins']['Weathermap']['show_interfaces']))
-		$weathermap_config['show_interfaces'] = $config['plugins']['Weathermap']['show_interfaces'];
+        if (isset($config['plugins']['Weathermap']['show_interfaces'])) {
+                $show_if_cfg = $config['plugins']['Weathermap']['show_interfaces'];
+                if (in_array($show_if_cfg, $valid_show_interfaces)) {
+                        $weathermap_config['show_interfaces'] = $valid_show_interfaces[$show_if_cfg];
+                } elseif (validate_device_id($show_if_cfg)) {
+                        $weathermap_config['show_interfaces'] = $show_if_cfg;
+                }
+        }
 
 
 // ******************************************
