@@ -188,26 +188,26 @@ function mysprintf($format, $value, $kilo = 1000)
 // Translate a subset of strftime tokens to their date() equivalents and
 // return formatted time. Only tokens used by Weathermap documentation are
 // supported here.
-/* function wm_format_date($format, $timestamp)
+function wm_format_date($format, $timestamp)
 {
     $replacements = array(
-        '%a' => 'D',  // abbreviated weekday name
-        '%A' => 'l',  // full weekday name
+//        '%a' => 'D',  // abbreviated weekday name
+//        '%A' => 'l',  // full weekday name
         '%b' => 'M',  // abbreviated month name
-        '%B' => 'F',  // full month name
-        '%c' => 'D M j H:i:s Y',
-        '%d' => 'd',  // day of month 01-31
-        '%e' => 'j',  // day of month 1-31
+//        '%B' => 'F',  // full month name
+//        '%c' => 'D M j H:i:s Y',
+//        '%d' => 'd',  // day of month 01-31
+//        '%e' => 'j',  // day of month 1-31
         '%H' => 'H',  // hour 00-23
-        '%I' => 'h',  // hour 01-12
-        '%k' => 'G',  // hour 0-23
-        '%m' => 'm',  // month 01-12
+//        '%I' => 'h',  // hour 01-12
+//        '%k' => 'G',  // hour 0-23
+//        '%m' => 'm',  // month 01-12
         '%M' => 'i',  // minutes
-        '%p' => 'A',  // am/pm
+//        '%p' => 'A',  // am/pm
         '%S' => 's',  // seconds
-	'%z' => 'O',  // difference to GMT
-        '%Z' => 'T',  // timezone abbreviation
-        '%y' => 'y',  // year 00-99
+//	'%z' => 'O',  // difference to GMT
+//        '%Z' => 'T',  // timezone abbreviation
+//        '%y' => 'y',  // year 00-99
         '%Y' => 'Y',  // year four digits
         '%%' => '%',
     );
@@ -215,7 +215,7 @@ function mysprintf($format, $value, $kilo = 1000)
     $phpformat = strtr($format, $replacements);
     return date($phpformat, $timestamp);
 }
-*/
+
 // ParseString is based on code from:
 // http://www.webscriptexpert.com/Php/Space-Separated%20Tag%20Parser/
 
