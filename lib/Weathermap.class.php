@@ -1721,6 +1721,7 @@ class WeatherMap extends WeatherMapBase
         // add a timestamp to the corner, so we can tell if it's all being updated
         # $datestring = "Created: ".date("M d Y H:i:s",time());
         # $this->datestamp=strftime($this->stamptext, time());
+	$this->datestamp = "Created: " . date("M d Y H:i:s");
 
         switch ($which) {
             case "MIN":
