@@ -22,7 +22,7 @@ if (is_dir($cacti_base) && file_exists($cacti_base . '/include/global.php')) {
 }
 
 require_once 'Weathermap.class.php';
-require_once 'Console/Getopt.php';
+require_once __DIR__.'/../lib/Console/Getopt.php';
 
 $reverse = 0;
 $inputfile = '';

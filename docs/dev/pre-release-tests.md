@@ -7,7 +7,7 @@ each one, like fighter pilots.
 ## Basics - Install & Run Demo Map ##
 
 * On DEV, make sure 'make test' passes all unit tests (allow for 3 fails on tests with timestamps in the image)
-* On DEV, check the test-suites/index.html output for problems.
+* On DEV, check the PHPUnit output for problems.
 * Create clean TEST system (easiest is VM because you can snapshot it) - built from dev-environment.txt
 * Build zip on DEV system ('make release') and copy zip (only) to TEST system
 * Unzip in plugins/ directory as usual

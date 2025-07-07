@@ -138,7 +138,7 @@
       if($environment == 'CLI')
       {
             // Console_Getopt is only needed by the CLI tool.
-            $included = @include_once 'Console/Getopt.php';
+            $included = @include_once __DIR__.'/lib/Console/Getopt.php';
             
             if($included != 1)
             {

@@ -24,7 +24,7 @@ ini_set('include_path',
 
 require_once 'lib/Weathermap.class.php';
 require_once 'lib/database.php';
-require_once 'Console/Getopt.php';
+require_once __DIR__.'/../lib/Console/Getopt.php';
 
 include_once 'include/global.php';
 include_once 'include/config.php';

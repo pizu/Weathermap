@@ -24,7 +24,23 @@ See COPYING for the license under which php-weathermap is released.
 There is much more information, tutorials and updates available at:
 http://www.network-weathermap.com/
 
+### Running Tests
 
+To execute the PHPUnit test suite you need PHP with the **gd** extension enabled.
+Install Composer from <https://getcomposer.org/download/> or using your
+system's package manager. Once Composer is available, install PHPUnit by
+running:
+```
+composer install
+```
+
+or install phpunit using your package manager. Once installed, run:
+
+```
+vendor/bin/phpunit --configuration phpunit.xml
+```
+
+from the project root.
 ----
 
 PHP Weathermap contains components from other software developers:
@@ -47,6 +63,9 @@ http://www.famfamfam.com/lab/icons/silk/
 These are released under the Creative Commons Attribution 2.5 License
 http://creativecommons.org/licenses/by/2.5/
 
+Console_Getopt (lib/Console/Getopt.php) is bundled from the PEAR package
+version 1.4.3 and is licensed under the BSD-2-Clause license. See
+lib/Console/LICENSE for details.
 ----
 
 Thanks to Edgeuno for the support, visit us at https://edgeuno.com/

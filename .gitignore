@@ -2,3 +2,14 @@ configs
 output
 !output/index.php
 weathermap.png
+vendor/autoload.php
+vendor/bin/
+vendor/composer/
+vendor/doctrine/
+vendor/myclabs/
+vendor/nikic/
+vendor/phar-io/
+vendor/phpunit/
+vendor/sebastian/
+vendor/theseer/
+.phpunit.result.cache

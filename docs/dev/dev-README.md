@@ -37,7 +37,7 @@ the testing works as follows:
 * compare the two generated image files (to see if the config is "losing" bits - WriteConfig bugs)
 * compare the generated image to a reference image (to see if the config works as expected)
   
-Tests/ConfigTest.php does this for every .conf file that it finds in the test-suite/tests
+Tests/ConfigTest.php does this for every .conf file that it finds in the tests
 directory. There are around 150 tests so far. Each one tests a particular feature or
 combination. Every time I find a new problem, I add new tests. Every time I add a new
 feature, I add new tests. This covers a lot of the core weathermap features by now.
@@ -51,14 +51,13 @@ The test runner looks for that, and will skip tests when runn with a lower versi
 exception is if the current version includes 'dev' in the name - then it will always run all
 tests.
 
-After the tests have run, you can look at test-suite/index.html to get summary reports of all
-image-comparison tests, or just the failing ones. ImageMagick is used to compare images, so 
-each 'result' is 3 images - the output from the test, the reference image, and a comparison
-image, which shows pink where there are differences. Sometimes it's just that different
-platforms have different Freetype or GD versions, and so fonts are shifted around by a pixel
-here and there. There's also an 'approve' link in that report, so you can update the reference
-image to use the current output, if you think that the current output is actually correct (or
-isn't a bug, just library differences).
+After the tests have run, review the PHPUnit output for a summary of theimage-comparison tests. 
+ImageMagick is used to compare images, so each 'result' is 3 images - the output from the test, 
+the reference image, and a comparison image, which shows pink where there are differences. 
+Sometimes it's just that different platforms have different Freetype or GD versions, and so 
+fonts are shifted around by a pixel here and there. There's also an 'approve' link in that 
+report, so you can update the reference image to use the current output, if you think that 
+the current output is actually correct (or isn't a bug, just library differences).
 
 ### UI Functional Tests (manual) ###
 

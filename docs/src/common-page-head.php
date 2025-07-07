@@ -14,8 +14,8 @@
             <?php if(! isset($FRONT_PAGE)) {
                 include "common-top-nav.php";
 } ?>
-    <sdiv id="content">
-    <sdiv id="content2" class="wrapper">
+    <div id="content">
+    <div id="content2" class="wrapper">
 
 
 <div class="container">
