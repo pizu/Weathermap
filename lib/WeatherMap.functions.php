@@ -209,7 +209,7 @@ function wm_format_date($format, $timestamp)
 //        '%Z' => 'T',  // timezone abbreviation
 //        '%y' => 'y',  // year 00-99
         '%Y' => 'Y',  // year four digits
-        '%%' => '%',
+//        '%%' => '%',
     );
 
     $phpformat = strtr($format, $replacements);
