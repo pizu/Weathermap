@@ -188,7 +188,7 @@ function mysprintf($format, $value, $kilo = 1000)
 // Translate a subset of strftime tokens to their date() equivalents and
 // return formatted time. Only tokens used by Weathermap documentation are
 // supported here.
-function wm_format_date($format, $timestamp)
+/* function wm_format_date($format, $timestamp)
 {
     $replacements = array(
         '%a' => 'D',  // abbreviated weekday name
@@ -215,7 +215,7 @@ function wm_format_date($format, $timestamp)
     $phpformat = strtr($format, $replacements);
     return date($phpformat, $timestamp);
 }
-
+*/
 // ParseString is based on code from:
 // http://www.webscriptexpert.com/Php/Space-Separated%20Tag%20Parser/
 
