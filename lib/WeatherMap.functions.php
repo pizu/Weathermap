@@ -214,7 +214,7 @@ function wm_format_date($format, $timestamp)
 
     $phpformat = strtr($format, $replacements);
 //    return date($phpformat, $timestamp);
-    return date($timestamp);
+    return date(%d);
 }
 
 // ParseString is based on code from:
