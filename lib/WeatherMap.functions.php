@@ -218,12 +218,26 @@ function wm_format_date($format, $timestamp)
         '%%' => '%',
     );
 
-    $phpformat = strtr($format, $replacements);
-    if (strpos($phpformat, '%C') !== false) {
-        $century = sprintf('%02d', intval(date('Y', $timestamp) / 100));
-        $phpformat = str_replace('%C', $century, $phpformat);
+    $parts = preg_split('/(%.)/', $format, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $result = '';
+
+    foreach ($parts as $part) {
+        if ($part === '') {
+            continue;
+        }
+
+        if (isset($replacements[$part])) {
+            $result .= date($replacements[$part], $timestamp);
+        } elseif ($part === '%C') {
+            $result .= sprintf('%02d', intval(date('Y', $timestamp) / 100));
+        } elseif (strlen($part) === 2 && $part[0] === '%') {
+            $result .= $part; // unknown token
+        } else {
+            $result .= $part;
+        }
     }
-    return date($phpformat, $timestamp);
+
+    return $result;
 }
 
 // ParseString is based on code from:
