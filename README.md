@@ -26,20 +26,18 @@ http://www.network-weathermap.com/
 
 ### Running Tests
 
-To execute the PHPUnit test suite you need PHP with the **gd** extension enabled.
-Install Composer from <https://getcomposer.org/download/> or using your
-system's package manager. Once Composer is available, install PHPUnit by
-running:
+The test suite requires **PHP 8.x** with the **gd** extension enabled. Install
+Composer from <https://getcomposer.org/download/> or by using your system's
+package manager. From the project root run:
 ```
 composer install
 ```
 
-or install phpunit using your package manager. Once installed, run:
-
+This installs PHPUnit and other development dependencies. After Composer has
+finished, execute the tests with:
 ```
 vendor/bin/phpunit --configuration phpunit.xml
 ```
-
 from the project root.
 ----
 

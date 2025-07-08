@@ -198,11 +198,17 @@ function wm_format_date($format, $timestamp)
         '%c' => 'D M j H:i:s Y',
         '%d' => 'd',  // day of month 01-31
         '%e' => 'j',  // day of month 1-31
+	'%D' => 'm/d/y', // month/day/year
         '%H' => 'H',  // hour 00-23
         '%I' => 'h',  // hour 01-12
         '%k' => 'G',  // hour 0-23
         '%m' => 'm',  // month 01-12
         '%M' => 'i',  // minutes
+	'%R' => 'H:i', // 24-hour HH:MM
+        '%T' => 'H:i:s', // 24-hour HH:MM:SS
+        '%r' => 'h:i:s A', // 12-hour clock time
+        '%X' => 'H:i:s', // time representation
+        '%x' => 'm/d/y', // date representation
         '%p' => 'A',  // am/pm
         '%S' => 's',  // seconds
 	'%z' => 'O',  // difference to GMT
@@ -212,8 +218,26 @@ function wm_format_date($format, $timestamp)
         '%%' => '%',
     );
 
-    $phpformat = strtr($format, $replacements);
-    return date($phpformat, $timestamp);
+    $parts = preg_split('/(%.)/', $format, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $result = '';
+
+    foreach ($parts as $part) {
+        if ($part === '') {
+            continue;
+        }
+
+        if (isset($replacements[$part])) {
+            $result .= date($replacements[$part], $timestamp);
+        } elseif ($part === '%C') {
+            $result .= sprintf('%02d', intval(date('Y', $timestamp) / 100));
+        } elseif (strlen($part) === 2 && $part[0] === '%') {
+            $result .= $part; // unknown token
+        } else {
+            $result .= $part;
+        }
+    }
+
+    return $result;
 }
 
 // ParseString is based on code from:
