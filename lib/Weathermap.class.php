@@ -235,7 +235,8 @@ class WeatherMap extends WeatherMapBase
 	var $titlex,
 		$titley;
 	var $keytext,
-		$stamptext, $datestamp;
+		$stamptext, $datestamp,
+		$map_time;
 	var $min_data_time, $max_data_time;
 	var $htmloutputfile,
                 $dataoutputfile,
@@ -340,7 +341,8 @@ class WeatherMap extends WeatherMapBase
             'widthmod' => false,
             'has_includes' => false,
             'has_overlibs' => false,
-            'name' => 'MAP'
+            'name' => 'MAP',
+	    'map_time' => 0
         );
 
         $this->Reset();
@@ -1723,7 +1725,8 @@ class WeatherMap extends WeatherMapBase
         # $this->datestamp=strftime($this->stamptext, time());
 	// $this->datestamp = "Created: " . date("M d Y H:i:s");
 	if (empty($this->datestamp)) {
-            $this->datestamp = wm_format_date($this->stamptext, time());
+            $ts = $this->map_time ?: time();
+            $this->datestamp = wm_format_date($this->stamptext, $ts);
         }
 
         switch ($which) {
@@ -3298,7 +3301,8 @@ class WeatherMap extends WeatherMapBase
         } else {
             $maptime = time();
         }
-        $this->datestamp = wm_format_date($this->stamptext, $maptime);
+        $this->map_time = $maptime;
+        $this->datestamp = wm_format_date($this->stamptext, $this->map_time);
 
         // do the basic prep work
         if ($this->background != '') {
