@@ -198,11 +198,17 @@ function wm_format_date($format, $timestamp)
         '%c' => 'D M j H:i:s Y',
         '%d' => 'd',  // day of month 01-31
         '%e' => 'j',  // day of month 1-31
+	'%D' => 'm/d/y', // month/day/year
         '%H' => 'H',  // hour 00-23
         '%I' => 'h',  // hour 01-12
         '%k' => 'G',  // hour 0-23
         '%m' => 'm',  // month 01-12
         '%M' => 'i',  // minutes
+	'%R' => 'H:i', // 24-hour HH:MM
+        '%T' => 'H:i:s', // 24-hour HH:MM:SS
+        '%r' => 'h:i:s A', // 12-hour clock time
+        '%X' => 'H:i:s', // time representation
+        '%x' => 'm/d/y', // date representation
         '%p' => 'A',  // am/pm
         '%S' => 's',  // seconds
 	'%z' => 'O',  // difference to GMT
@@ -213,6 +219,10 @@ function wm_format_date($format, $timestamp)
     );
 
     $phpformat = strtr($format, $replacements);
+    if (strpos($phpformat, '%C') !== false) {
+        $century = sprintf('%02d', intval(date('Y', $timestamp) / 100));
+        $phpformat = str_replace('%C', $century, $phpformat);
+    }
     return date($phpformat, $timestamp);
 }
 
