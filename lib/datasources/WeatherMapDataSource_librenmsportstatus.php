@@ -22,8 +22,8 @@
 //   OVERLIBGRAPH {node:this:librenms_graph_url_1} {node:this:librenms_graph_url_2}
 // Do not use one token containing a space-separated list for multiple graphs.
 //
-// This version auto-reads LibreNMS existing DB settings from /opt/librenms/.env
-// by finding the LibreNMS root from the Weathermap plugin path/config.inc.php.
+// This version auto-reads LibreNMS existing DB settings from environment variables,
+// LibreNMS .env, or legacy LibreNMS config.php.
 // No API, no per-render config rewrite, no separate DB config file required.
 
 class WeatherMapDataSource_librenmsportstatus extends WeatherMapDataSource
@@ -318,25 +318,6 @@ class WeatherMapDataSource_librenmsportstatus extends WeatherMapDataSource
 
         $cfg = $this->_default_config();
         $loaded_from = 'environment/defaults';
-
-        // Optional explicit INI remains supported if needed later.
-        $ini_path = '';
-        if (is_object($map) && method_exists($map, 'get_hint')) {
-            $hint = $map->get_hint('librenms_db_config');
-            if ($hint !== NULL && $hint !== '') {
-                $ini_path = $hint;
-            }
-        }
-        if ($ini_path === '' && getenv('LIBRENMS_DB_CONFIG') !== FALSE) {
-            $ini_path = getenv('LIBRENMS_DB_CONFIG');
-        }
-        if ($ini_path !== '' && is_readable($ini_path)) {
-            $ini = parse_ini_file($ini_path);
-            if (is_array($ini)) {
-                $cfg = $this->_merge_non_empty($cfg, $ini);
-                $loaded_from = $ini_path;
-            }
-        }
 
         foreach ($this->_candidate_roots() as $root) {
             $env_path = rtrim($root, '/') . '/.env';
